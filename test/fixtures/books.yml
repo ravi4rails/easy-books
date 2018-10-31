@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  price: 1
+  detail: MyText
+  front_cover_image: MyString
+  back_cover_image: MyString
+  book_category: one
+
+two:
+  name: MyString
+  price: 1
+  detail: MyText
+  front_cover_image: MyString
+  back_cover_image: MyString
+  book_category: two

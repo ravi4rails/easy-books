@@ -1,0 +1,17 @@
+<div class="container mt-5">
+  <%= link_to admin_book_categories_path, class: "btn btn-outline-primary" do %>
+    <small><i class="fas fa-arrow-left mr-2"></i>Back</small>
+  <% end %>
+  <div class="row">
+    <div class="col-md-6 mx-md-auto mt-5">
+      <div class="card">
+        <div class="card-header">
+          <h4>New Book Category</h4>
+        </div>
+        <div class="card-body">
+          <%= render 'form', book_category: @book_category %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

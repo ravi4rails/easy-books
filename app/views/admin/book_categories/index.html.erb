@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-9 mx-md-auto">
+      <h4>Book Categories</h4>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @book_categories.each do |book_category| %>
+              <tr>
+                <td><%= book_category.name %></td>
+                <td><%= link_to 'Show', admin_book_category_path(book_category) %> |
+                <%= link_to 'Edit', edit_admin_book_category_path(book_category) %> |
+                <%= link_to 'Destroy', admin_book_category_path(book_category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <div class="add-book-btn mt-5">
+          <%= link_to 'Add Book Category', new_admin_book_category_path, class: "btn btn-outline-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

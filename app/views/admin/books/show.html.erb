@@ -1,0 +1,39 @@
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-9 mx-md-auto">
+      <div class="card p-4">
+        <p>
+          <strong>Name:</strong>
+          <%= @book.name %>
+        </p>
+
+        <p>
+          <strong>Price:</strong>
+          <%= @book.price %>
+        </p>
+
+        <p>
+          <strong>Detail:</strong>
+          <%= @book.detail %>
+        </p>
+
+        <p>
+          <strong>Front cover image:</strong>
+          <%= image_tag @book.front_cover_image, class: "w-25 ml-3" %>
+        </p>
+
+        <p>
+          <strong>Back cover image:</strong>
+          <%= image_tag @book.back_cover_image, class: "w-25 ml-3" %>
+        </p>
+
+        <div>
+          <%= link_to 'Edit', edit_admin_book_path(@book) %> |
+          <%= link_to 'Back', admin_books_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,37 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 mx-md-auto">
+      <div class="card mt-5 mb-5 shadow">
+        <div class="card-header">
+          <h5 class="text-center">User Sign Up</h5>
+        </div>
+        <div class="card-body">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id: "user-signup"}) do |f| %>
+
+            <div class="form-group pl-4 pr-4 mt-3">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email Address" %>
+            </div>
+
+            <div class="form-group pl-4 pr-4 mt-4">
+              <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %>
+              <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password" %>
+            </div>
+
+            <div class="form-group pl-4 pr-4 mt-4">
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: " Confirm Password" %>
+            </div>
+
+            <div class="actions pl-4 pr-4 mt-5">
+              <%= f.submit "Sign up", class: "btn btn-primary btn-block" %>
+            </div>
+            <div class="pl-4 pr-4 mt-4">
+              <%= link_to "Log in", new_session_path(resource_name), class: " font-weight-bold text-dark" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

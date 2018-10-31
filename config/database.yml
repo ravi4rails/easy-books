@@ -1,0 +1,19 @@
+default: &default
+  adapter:  postgresql
+  host:     localhost
+  encoding: unicode
+  pool:     5
+  username: postgres
+  password: 123456
+
+development:
+  <<: *default
+  database: easy-books_dev
+
+test:
+  <<: *default
+  database: easy-books_test
+
+production:
+  <<: *default
+  database: easy-books_prod

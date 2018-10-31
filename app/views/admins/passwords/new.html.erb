@@ -1,0 +1,29 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 mx-md-auto">
+      <div class="card mt-5 mb-5 shadow">
+        <div class="card-header">
+          <h5 class="text-center">Forgot your password?</h5>
+        </div>
+        <div class="card-body">
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, id: "admin_change_password"}) do |f| %>
+
+            <div class="form-group pl-4 pr-4 mt-4">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+            </div>
+
+            <div class="actions form-group pl-4 pr-4 mt-4">
+              <%= f.submit "Send me reset password instructions", class: "btn btn-primary btn-block" %>
+            </div>
+
+            <div class="text-right mt-5">
+              <%= link_to "Log in", new_session_path(resource_name), class: "text-dark font-weight-bold" %> | <%= link_to "Sign up", new_registration_path(resource_name), class: "text-dark font-weight-bold" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

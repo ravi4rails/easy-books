@@ -1,0 +1,35 @@
+<div class="container mt-5 ">
+  <h1>Books</h1>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Detail</th>
+          <th>Front cover image</th>
+          <th>Back cover image</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @books.each do |book| %>
+          <tr>
+            <td><%= book.name %></td>
+            <td><%= book.price %></td>
+            <td class="w-25"><%= book.detail %></td>
+            <td><%= image_tag book.front_cover_image, class: "w-75" %></td>
+            <td class="pl-0"><%= image_tag book.back_cover_image, class: "w-75" %></td>
+            <td class="w-25"><%= link_to 'Show', admin_book_path(book) %> |
+            <%= link_to 'Edit', edit_admin_book_path(book) %> |
+            <%= link_to 'Destroy', admin_book_path(book), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="add-book-btn mt-5">
+      <%= link_to 'New Book', new_admin_book_path, class: "btn btn-outline-primary" %>
+    </div>
+  </div>
+</div>
