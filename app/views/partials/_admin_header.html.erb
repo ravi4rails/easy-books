@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">EASYBOOKS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto ml-4">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Login<i class="fas fa-angle-down ml-2 "></i>
+        </a>
+        <div class="dropdown-menu rounded-0 mt-1" aria-labelledby="navbarDropdown">
+          <% if admin_signed_in? %>
+            <%= link_to "", class: 'dropdown-item' do %>
+              <i class="far fa-user"></i> <%= current_admin.email %> 
+            <% end %>
+            <%= link_to destroy_admin_session_path, method: :delete, class: 'dropdown-item' do %>
+              <i class="fas fa-sign-out-alt"></i> Logout
+            <% end %>
+          <% else %>
+            <%= link_to new_admin_session_path, class: 'dropdown-item' do %>
+              <i class="fas fa-sign-in-alt"></i> Sign In
+            <% end %>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

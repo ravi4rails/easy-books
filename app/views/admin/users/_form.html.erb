@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card-body">
+      <%= form_for [:admin, @user], html: { class: "form-material m-t-40" } do |f| %>
+        <%# if @user.errors.any? %>
+          <%#= render 'partials/error', target: @user %>
+        <%# end %>
+        <div class="form-group">
+          <label>First name </label>
+          <%= f.text_field :first_name, placeholder: "Enter first name", class: "form-control form-control-line", required: true %>
+        </div>
+        <div class="form-group">
+          <label>Last name </label>
+          <%= f.text_field :last_name, placeholder: "Enter last name", class: "form-control form-control-line", required: true %>
+        </div>
+        <div class="form-group">
+          <label>Email </label>
+          <%= f.email_field :email, placeholder: "Enter email", class: "form-control form-control-line", required: true %>
+        </div>
+        <div class="form-group mt-3">
+          <%= f.file_field :profile_pic, autofocus: true %>
+        </div>
+           
+        <div class="form-group">
+          <label>Password </label>
+          <%= f.password_field :password, placeholder: "Enter password", class: "form-control form-control-line" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit 'Save User', class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

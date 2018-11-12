@@ -1,0 +1,9 @@
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "jquery-ui";
+
+label.error{
+  color: red;
+  margin-top: 3%;
+}

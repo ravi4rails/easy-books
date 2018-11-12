@@ -1,0 +1,12 @@
+//= require rails-ujs
+//= require jquery3
+//= require popper
+//= require bootstrap
+//= require jquery_validate
+//= require admin/admin_login.validation
+//= require admin/admin_signup.validation
+//= require admin/admin_edit.validation
+//= require admin/admin_edit_password.validation
+//= require admin/admin_change_password.validation
+//= require admin/book_category.validation
+//= require admin/admin_book.validation

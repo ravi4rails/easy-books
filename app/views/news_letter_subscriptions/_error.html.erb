@@ -1,0 +1,11 @@
+<% if news_letter_subscription.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(news_letter_subscription.errors.count, "error") %> prohibited this news_letter_subscription from being saved:</h2>
+
+    <ul>
+      <% news_letter_subscription.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

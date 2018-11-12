@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EasyBooks</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'layout_user', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'layout_user', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render "partials/app_header"%>
+    <%= render "partials/modals"%>
+    <%= yield %>
+    <br>
+    <%= render "partials/app_footer"%>
+  </body>
+</html>

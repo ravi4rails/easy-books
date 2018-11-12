@@ -27,4 +27,7 @@
 //= require admin/admin_change_password.validation
 //= require admin/book_category.validation
 //= require admin/admin_book.validation
+//= require admin/admin_shop.validation
+//= require jquery-ui
+//= require book_search
 //= require turbolinks

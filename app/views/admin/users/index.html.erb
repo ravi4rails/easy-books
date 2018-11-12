@@ -1,0 +1,69 @@
+<div class="container mt-5 ">
+  <h1>Users</h1>
+  <%= search_form_for @q, url: :admin_users do |f| %>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label :first_name %>
+            <%= f.search_field :first_name_cont, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label :last_name %>
+            <%= f.search_field :last_name_cont, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.search_field :email_cont, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group ml-3">
+          <%= f.submit "Search", class: "btn btn-primary" %>
+          <%= link_to "Reset", admin_users_path, class: "btn btn-secondary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Profile Image</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.first_name %></td>
+            <td><%= user.last_name %></td>
+            <td><%= user.email %></td>
+            <td><%= image_tag user.profile_pic, class: "w-25" %></td>
+            <td class="w-25">
+              <div class="dropdown">
+                <button type="button" class="btn btn-outline-secondary" data-toggle="dropdown">
+                  Action<i class="fas fa-angle-down ml-2"></i>
+                </button>
+                <div class="dropdown-menu">
+                  <%= link_to 'Show', admin_user_path(user), class: "dropdown-item"%>
+                  <%= link_to 'Edit', edit_admin_user_path(user), class: "dropdown-item"%>
+                  <%= link_to 'Destroy',  admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item"  %>
+                </div>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="add-book-btn mt-5">
+      <%= link_to 'New Book', new_admin_user_path, class: "btn btn-outline-primary" %>
+    </div>
+  </div>
+</div>

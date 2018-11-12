@@ -1,10 +1,11 @@
 class Admin::BookCategoriesController < ApplicationController
   before_action :set_book_category, only: [:show, :edit, :update, :destroy]
-
+  layout 'layout_admin'
   # GET /book_categories
   # GET /book_categories.json
   def index
-    @book_categories = BookCategory.all
+     @q = BookCategory.ransack(params[:q])
+    @book_categories = @q.result(distinct: true)
   end
 
   # GET /book_categories/1
@@ -25,7 +26,6 @@ class Admin::BookCategoriesController < ApplicationController
   # POST /book_categories.json
   def create
     @book_category = BookCategory.new(book_category_params)
-
     respond_to do |format|
       if @book_category.save
         format.html { redirect_to admin_book_category_path(@book_category), notice: 'Book category was successfully created.' }

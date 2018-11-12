@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Books for <%= params[:tag] %> </h1>
+
+<%= link_to 'New Book', new_book_path %>
+
+
+<div class="container">
+  <div class="row col-md-12">
+    <% @books.each do |book| %>
+    <div class="col-md-4">
+      <div class="card">
+        <%#=image_tag article.try(:cover_image) %>
+        <div class="card-body">
+          <%= book.name %>
+          <%= book.price %>
+          <%= book.detail %>
+        </div>
+      </div>
+      <%= link_to 'Show', book %>
+      <%= link_to 'Edit', edit_book_path(book) %>
+      <%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+    <% end %>
+  </div>
+</div>

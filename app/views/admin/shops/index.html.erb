@@ -1,0 +1,85 @@
+<div class="container mt-5 ">
+  <h1>Shops</h1>
+  <%= search_form_for @q, url: :admin_shops do |f| %>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.search_field :name_cont, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label :contact1 %>
+            <%= f.search_field :contact1_cont, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label :contact2 %>
+            <%= f.search_field :contact2_cont, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.search_field :email_cont, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label :fax %>
+            <%= f.search_field :fax_cont, class: "form-control" %>
+          </div>
+        </div>
+          <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label :address %>
+            <%= f.search_field :address, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.submit "Search", class: "btn btn-primary" %>
+        <%= link_to "Reset", admin_shops_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  <% end %>
+  <div class="table-responsive" style="overflow-x: unset;">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Primary Contact</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @shops.each do |shop| %>
+          <tr>
+            <td><%= shop.name %></td>
+            <td><%= shop.contact1 %></td>
+            <td><%= shop.email %></td>
+            <td class="w-25">
+              <div class="dropdown">
+                <button type="button" class="btn btn-outline-secondary" data-toggle="dropdown">
+                  Action<i class="fas fa-angle-down ml-2"></i>
+                </button>
+                <div class="dropdown-menu">
+                  <%= link_to 'Show', admin_shop_path(shop), class: "dropdown-item"%>
+                  <%= link_to 'Edit', edit_admin_shop_path(shop), class: "dropdown-item"%>
+                  <%= link_to 'Destroy', admin_shop_path(shop), method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item"  %>
+                </div>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="add-book-btn mt-5">
+      <%= link_to 'New Shop', new_admin_shop_path, class: "btn btn-outline-primary" %>
+    </div>
+  </div>
+</div>

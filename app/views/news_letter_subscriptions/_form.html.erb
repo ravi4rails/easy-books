@@ -1,0 +1,23 @@
+<%= form_for news_letter_subscription do |form| %>
+  <div class="modal-body">
+    <div class="form-group">
+      <%= form.label :first_name %>
+      <%= form.text_field :first_name, id: :news_letter_subscription_first_name, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :last_name %>
+      <%= form.text_field :last_name, id: :news_letter_subscription_last_name, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :email %>
+      <%= form.text_field :email, id: :news_letter_subscription_email, class: "form-control" %>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <%= form.submit "Subscribe", class: "btn btn-primary" %>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  </div>
+
+<% end %>

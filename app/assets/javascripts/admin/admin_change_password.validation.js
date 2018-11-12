@@ -4,11 +4,10 @@ $(document).ready(function(){
       $(this).addClass("error");
     },
     rules: {
-      'admin[email]' : "required",
-     
+      'admin[email]' : "required"
     },
     messages: { 
-      'admin[email]' : "Please enter admin email",
+      'admin[email]' : "Please enter admin email"
     }
   });
 })

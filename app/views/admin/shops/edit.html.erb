@@ -1,0 +1,21 @@
+<div class="container mt-5 mb-5">
+  <%= link_to admin_shops_path , class: "btn btn-outline-primary" do %>
+    <small><i class="fas fa-arrow-left mr-2"></i>Back</small>
+  <% end %>
+  <%= link_to admin_shop_path(@shop), class: "btn btn-outline-secondary" do %>
+    <small><i class="fas fa-arrow-left mr-2"></i>Show</small>
+  <% end %>
+  <div class="row">
+    <div class="col-md-8 mx-md-auto mt-5">
+      <div class="card">
+        <div class="card-header">
+          <h4>Editing Shop</h4>
+        </div>
+        <div class="card-body">
+          <%= render 'form', shop: @shop %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

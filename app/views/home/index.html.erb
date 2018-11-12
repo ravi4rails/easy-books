@@ -1,0 +1,13 @@
+<div class="jumbotron">
+  <h1 class="display-6 text-center">Welcome to EasyBooks</h1>
+  <p class="lead text-center">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <div class="col-md-6 mx-md-auto">
+    <%= form_for :book_search, url: :book_search, method: :get do |f| %>
+      <div class="input-group md-form form-sm form-2 pl-0">
+        <%= f.text_field :keyword, class: "form-control my-0 py-1 amber-border", placeholder: "Search", id: "tags_home" %>
+        <button class="btn btn-elegant btn-rounded btn-sm my-0" type="submit">Search</button>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>

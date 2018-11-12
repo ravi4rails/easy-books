@@ -1,10 +1,11 @@
 class Admin::BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
-
+  layout 'layout_admin'
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
+    @q = Book.ransack(params[:q])
+    @books = @q.result(distinct: true)
   end
 
   # GET /books/1
@@ -69,6 +70,6 @@ class Admin::BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:name, :price, :detail, :front_cover_image, :back_cover_image, :book_category_id)
+      params.require(:book).permit!
     end
 end

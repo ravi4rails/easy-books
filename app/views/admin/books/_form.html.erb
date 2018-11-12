@@ -27,6 +27,11 @@
   </div>
 
   <div class="form-group pl-4 pr-4">
+    <%= form.label :keyword_list %>
+    <%= form.text_field :keyword_list, placeholder: "Comma saperated tags", value: book.keyword_list.map {|tg| tg }.join(","), class: "form-control" %>
+  </div>
+
+  <div class="form-group pl-4 pr-4">
     <%= form.label :front_cover_image %><br>
     <%= form.file_field :front_cover_image, id: :book_front_cover_image %>
   </div>

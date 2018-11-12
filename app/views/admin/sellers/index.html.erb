@@ -1,0 +1,75 @@
+<div class="container mt-5 ">
+  <h1>Sellers</h1>
+  <%= search_form_for @q, url: :admin_sellers do |f| %>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label :first_name %>
+            <%= f.search_field :first_name_cont, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label :last_name %>
+            <%= f.search_field :last_name_cont, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.search_field :email_cont, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label :contact_number %>
+            <%= f.search_field :contact_number_cont, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.submit "Search", class: "btn btn-primary" %>
+        <%= link_to "Reset", admin_sellers_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  <% end %>
+  <div class="table-responsive" style="overflow-x: unset;">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Contact Number</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @sellers.each do |seller| %>
+          <tr>
+            <td><%= seller.first_name %></td>
+            <td><%= seller.last_name %></td>
+            <td><%= seller.email %></td>
+            <td><%= seller.contact_number %></td>
+            <td class="w-25">
+              <div class="dropdown">
+                <button type="button" class="btn btn-outline-secondary" data-toggle="dropdown">
+                  Action<i class="fas fa-angle-down ml-2"></i>
+                </button>
+                <div class="dropdown-menu">
+                  <%= link_to 'Show', admin_seller_path(seller), class: "dropdown-item"%>
+                  <%= link_to 'Edit', edit_admin_seller_path(seller), class: "dropdown-item"%>
+                  <%= link_to 'Destroy', admin_seller_path(seller), method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item"  %>
+                </div>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="add-book-btn mt-5">
+      <%= link_to 'New Book', new_admin_seller_path, class: "btn btn-outline-primary" %>
+    </div>
+  </div>
+</div>

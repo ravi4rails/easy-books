@@ -1,0 +1,32 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-3">
+      <ul class="list-group">
+        <% BookCategory.all.each do |category| %>
+          <%= link_to category.name, category, class: "list-group-item list-group-item-action" %>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-md-9">
+      <% if @book_category.books.present? %>
+        <div class="row">
+          <% @books.each do |book|  %>
+            <div class="col-md-4 mb-3">
+              <%= link_to book do %>
+                <div class="card">
+                  <%= image_tag book.front_cover_image, class: "card-img-top", style: "height:200px;" %>
+                  <div class="card-body">
+                    <h6 class="font-weight-bold"><%= book.name %></h6>
+                    <h6 class="font-weight-bold">Rs. <%= book.price %></h6>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <%end%>
+        </div>
+      <% else %>
+        <h4 class="text-primary">No books found for this category</h4>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 class Book < ApplicationRecord
   belongs_to :book_category, optional: true
+  acts_as_taggable_on :keywords
   mount_uploader :front_cover_image, ImageUploader
   mount_uploader :back_cover_image, ImageUploader
   validates :name, presence: true, uniqueness: true
